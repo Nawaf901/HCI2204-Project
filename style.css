@@ -1,0 +1,253 @@
+/* =========================================
+   1. المتغيرات (Variables) للألوان
+========================================= */
+/* ألوان الوضع الفاتح (الأساسي) */
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #333333;
+    --nav-bg: #0056b3;
+    --nav-text: #ffffff;
+    --card-bg: #ffffff;
+    --border-color: #dee2e6;
+    --link-color: #0056b3;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ألوان الوضع الداكن (Dark Mode) */
+.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --nav-bg: #1f1f1f;
+    --nav-text: #ffffff;
+    --card-bg: #1e1e1e;
+    --border-color: #333333;
+    --link-color: #66b2ff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* =========================================
+   2. الإعدادات الأساسية (Base Styles)
+========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    /* مسافة علوية لمنع تداخل المحتوى مع القائمة الثابتة */
+    padding-top: 80px; 
+}
+
+/* =========================================
+   3. القائمة العلوية الثابتة (Navigation)
+========================================= */
+header {
+    background-color: var(--nav-bg);
+    position: fixed; /* يجعل القائمة ثابتة في الأعلى */
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: var(--nav-text);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================
+   4. التخطيط العام (Layout)
+========================================= */
+main {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================================
+   إضافة التمرير الناعم للصفحة
+========================================= */
+html {
+    scroll-behavior: smooth; /* يجعل الانتقال بين الأقسام ناعماً واحترافياً */
+}
+
+/* =========================================
+   تعديل الأقسام لعدم التداخل مع القائمة العلوية
+========================================= */
+section {
+    margin-bottom: 50px;
+    scroll-margin-top: 100px; /* هذا السطر السحري يترك مسافة 100 بكسل حتى لا تغطي القائمة على العنوان */
+}
+
+/* =========================================
+   5. الجداول والقوائم (Tables & Lists)
+========================================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    /* استخدام text-align: start يجعله يتوافق تلقائياً مع اليمين واليسار */
+    text-align: start; 
+}
+
+th {
+    background-color: var(--nav-bg);
+    color: var(--nav-text);
+}
+
+ol, ul:not(nav ul) {
+    /* مسافة بادئة تتوافق مع العربي والإنجليزي */
+    padding-inline-start: 25px; 
+    margin-bottom: 20px;
+}
+
+ol li, ul:not(nav ul) li {
+    margin-bottom: 8px;
+}
+
+/* =========================================
+   6. قسم المراجع (References)
+========================================= */
+.reference-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-color);
+}
+
+.reference-item img {
+    width: 60px;
+    height: 80px;
+    object-fit: cover;
+    /* مسافة تتوافق مع الاتجاهين */
+    margin-inline-end: 20px; 
+    border-radius: 4px;
+}
+
+.reference-item a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.reference-item a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   7. صفحة الفريق (Team Cards)
+========================================= */
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.team-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    width: 280px;
+    text-align: center;
+    padding: 25px;
+    box-shadow: var(--shadow);
+}
+
+.team-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid var(--nav-bg);
+}
+
+.team-card h3 {
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.team-card p {
+    margin-bottom: 5px;
+    font-size: 0.95em;
+}
+
+/* =========================================
+   8. التصميم المتجاوب للجوال (Responsive)
+========================================= */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+    
+    nav ul li {
+        margin: 5px 0;
+    }
+    
+    body {
+        /* زيادة المسافة العلوية في الجوال لأن القائمة تصبح أطول */
+        padding-top: 220px; 
+    }
+    
+    main {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    .reference-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .reference-item img {
+        margin-inline-end: 0;
+        margin-bottom: 15px;
+    }
+}
+h3 {
+    margin-top: 35px; /* هذه بتسوي مسافة ممتازة فوق العنوان */
+}
